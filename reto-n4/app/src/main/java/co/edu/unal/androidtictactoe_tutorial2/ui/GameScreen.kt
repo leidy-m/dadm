@@ -55,7 +55,7 @@ class GameViewModel : ViewModel() {
         private set
 
     init {
-        currentPlayer = "X" // Al comenzar, siempre empieza el jugador "X"
+        currentPlayer = "X"
     }
 
     fun confDif(selectedDifficulty: String) {
@@ -165,7 +165,7 @@ class GameViewModel : ViewModel() {
         return null
     }
 
-    // Movimiento estratégico (para dificultad difícil)
+    // Movimiento para dificultad difícil
     private fun makeStrategicMove() {
         val center = Pair(1, 1)
         val corners = listOf(Pair(0, 0), Pair(0, 2), Pair(2, 0), Pair(2, 2))
@@ -294,6 +294,10 @@ fun GameScreen(viewModel: GameViewModel = viewModel()) {
                     horizontalArrangement = Arrangement.Center
                 ) {
                     for (j in board[i].indices) {
+                        var color = Color.Green
+                        if ( board[i][j]== "O" ) {
+                            color = Color.Red
+                        }
                         Button(
                             modifier = Modifier
                                 .size(100.dp)
@@ -305,7 +309,8 @@ fun GameScreen(viewModel: GameViewModel = viewModel()) {
                             shape = RoundedCornerShape(8.dp)
                         ) {
                             Text(
-                                text = board[i][j]
+                                text = board[i][j],
+                                color = color
                             )
                         }
                     }
