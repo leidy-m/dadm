@@ -1,0 +1,23 @@
+name: mp3_player
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  path_provider: ^2.0.15
+  permission_handler: ^10.2.0
+  http: any
+  flutter_gemini: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
